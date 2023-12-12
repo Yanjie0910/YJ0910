@@ -1,0 +1,50 @@
+package viva2.q1;
+
+/**
+ *
+ * @author yj
+ */
+import java.util.Scanner;
+public class VIVA2Q1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter your password:");
+        String password=sc.next();
+        System.out.println(isValidPassword(password));
+    }
+    
+    public static boolean isValidPassword(String password){
+        boolean upper=false;
+        boolean lower=false;
+        int digitCount=0;
+        int specialNum=0;        
+     
+        for(int i=0;i<password.length();i++){
+              char x1=password.charAt(i);
+              if(Character.isLowerCase(x1))
+                  lower=true;
+              if(Character.isUpperCase(x1))
+                  upper=true;
+              if(x1=='!'||x1=='@'||x1=='#'||x1=='$'||x1=='%'||x1=='|'||x1==','||x1=='.')
+                  specialNum++;
+              if(Character.isDigit(x1))
+                  digitCount++;
+        }
+        
+        if (password.length()>=8&&upper&&lower&&digitCount>=3&&specialNum==1){
+            return true;
+        }else
+            return false;
+    }
+}
+       
+    
+        
+       
+        
+    
+
