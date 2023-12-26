@@ -10,18 +10,7 @@ package viva3q1;
  */
 public class VIVA3Q1 {
 
-    public static void main(String[] args) {
-        Phantom phantom = new Phantom();
-        BlackMage blackMage = new BlackMage();
-        System.out.println("The epic battle begins!");
-        while (blackMage.getCurrentHp()>0) {
-            int hit = phantom.damage(blackMage);
-            System.out.println(phantom.toString(hit,blackMage));
-        } 
-    }
-}
-
-class Phantom {
+static class Phantom {
     private double accuracy;
     private double critRate;
     
@@ -36,6 +25,9 @@ class Phantom {
         }
         if (critRate>=0&&critRate<=1){
             this.critRate=critRate;
+        }
+        else{
+             System.out.println("Accuracy and critRate should be between 0 and 1");
         }
     }
     // accessor and mutator methods
@@ -99,7 +91,7 @@ class Phantom {
     }
 }
 
-class BlackMage {
+static class BlackMage {
     private int hp;
     private int currentHp;
     private double evasion;
@@ -144,3 +136,16 @@ class BlackMage {
         this.critResistance = critResistance;
     }
 }
+    
+    public static void main(String[] args) {
+        Phantom phantom = new Phantom();
+        BlackMage blackMage = new BlackMage();
+        System.out.println("The epic battle begins!");
+        while (blackMage.getCurrentHp()>0) {
+            int hit = phantom.damage(blackMage);
+            System.out.println(phantom.toString(hit,blackMage));
+        } 
+    }
+}
+        
+        
